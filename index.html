@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Dresses</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+
+<body>
+  <div class="test">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Dresses</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input id="search" class="form-control mr-sm-2 " id="search" type="search" placeholder="Search" aria-label="Search">
+        <a class="btn btn custom-btn my-2 my-sm-0"  href="loginPage.html">SIGN IN</a>
+      </form>
+    </div>
+  </nav>
+ 
+  <div id="dress" class="dress">
+
+  </div>
+  <div id="form" class="add-new" style="padding-top:0px;">
+    <div id="forma" class="form">
+      <form class="add-form" method="post" action="controller/addProduct.php">
+        <input style="color:black;" type="text" name="url" placeholder="ImageURL" />
+        <input style="color:black;" type="text" name="name" placeholder="Name" />
+        <input style="color:black;" type="text" name="about" placeholder="About" />
+        <input style="color:black;" type="text" name="price" placeholder="Price" />
+        <button>Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
+<script>
+  $(document).ready(function () {
+    document.getElementById("forma").style.display = "none";
+    $.ajax({
+      url: 'controller/getProducts.php',
+      type: 'POST',
+      success: function (show_products) {
+        if (!show_products.error) {
+          $('#dress').html(show_products);
+        }
+      }
+    });
+  });
+</script>

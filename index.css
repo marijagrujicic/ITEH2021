@@ -1,0 +1,39 @@
+.btn.custom-btn {
+	background-color: rgb(231, 181, 181);
+    color: rgb(197, 161, 161);
+}
+
+img {
+    border: 1px solid rgb(231, 181, 181);
+    border-radius: 25px;
+    padding: 25px;
+    width: 150px;
+    height: 6cm;
+    object-fit: cover;
+  }
+.text {
+    color:  rgb(155, 79, 79);
+    margin-left:calc(100% - 65%);
+    margin-bottom: 50%;
+    text-align:justify;
+}
+
+
+.test {
+    background-image: url("https://image.freepik.com/free-vector/white-background-with-triangle-patterns_1017-18410.jpg");
+    position: relative;
+    background-size: cover;
+}
+.test:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(241, 200, 200, 0.8);
+}
+
+.add-new {
+  text-align: center;
+}
