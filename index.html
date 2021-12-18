@@ -60,4 +60,33 @@
       }
     });
   });
+
+  $('#search').keyup(function(){
+    var search=$('#search').val();
+    $.ajax({
+      url:'controller/searchProducts.php',
+      //prosledjujem preko kljuca search atribut search
+      data:{search:search},
+      type:'POST',
+      success:function(show_products){
+        if(!show_products.error){
+          $('#dress').html(show_products);
+          if(show_products==""){
+            $.ajax({
+            url:'controller/getProducts.php',
+            type:'POST',
+            success:function(show_products){
+              if(!show_products.error){
+                $('#dress').html(show_products);
+              }  
+            } 
+            });  
+          }
+        }
+      }     
+    });
+  });
+
+  
+  
 </script>

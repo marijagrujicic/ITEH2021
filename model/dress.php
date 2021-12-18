@@ -45,4 +45,3 @@ class Products{
         return $this->url;
     }
 }
-
